@@ -1,0 +1,9 @@
+number_of_samples = len(Y)
+random_indices = np.random.permutation(number_of_samples)
+num_training_samples = int(number_of_samples*0.75)
+x_train = X[random_indices[:num_training_samples]]
+y_train = Y[random_indices[:num_training_samples]]
+x_test = X[random_indices[num_training_samples:]]
+y_test = Y[random_indices[num_training_samples:]]
+model = neighbors.KNeighborsClassifier(n_neighbors = 5)
+model.fit(x_train,y_train)
